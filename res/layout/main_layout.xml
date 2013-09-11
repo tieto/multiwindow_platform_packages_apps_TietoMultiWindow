@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ TietoMultiWindow
+ Copyright (C) 2013 Tieto Poland Sp. z o.o.
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal" >
+
+    <com.tieto.multiwindow.ResizeLayer
+        android:id="@+id/resize_layer"
+        android:layout_width="48dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/black"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/add_tab_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:scaleType="centerInside"
+            android:onClick="onAddTab"
+            android:background="@drawable/add_tab_btn"/>
+
+        <Button
+            android:id="@+id/add_window_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/add_tab_btn"
+            android:scaleType="fitCenter"
+            android:onClick="addWindow"
+            android:background="@drawable/add_window_btn" />
+
+        <com.tieto.multiwindow.CustomButton
+            android:id="@+id/edit_mode_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/add_window_btn"
+            android:scaleType="fitCenter"
+            android:onClick="onEditModeChange"
+            android:background="@drawable/edit_mode_btn" />
+
+        <com.tieto.multiwindow.CustomButton
+            android:id="@+id/change_mode_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/edit_mode_btn"
+            android:scaleType="fitCenter"
+            android:onClick="onModeChange"
+            android:background="@drawable/change_mode_btn" />
+
+        <com.tieto.multiwindow.CustomButton
+            android:id="@+id/hide_expand_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/change_mode_btn"
+            android:scaleType="fitCenter"
+            android:onClick="onToggle"
+            android:background="@drawable/expand_btn" />
+
+        <LinearLayout
+            android:id="@+id/tab_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+    </com.tieto.multiwindow.ResizeLayer>
+
+    <RelativeLayout
+        android:id="@+id/ghost_layer"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/resize_layer"
+        android:background="@android:color/transparent"
+        android:onClick="onGhostLayerClick" />
+
+</RelativeLayout>
